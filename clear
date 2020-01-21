@@ -1,0 +1,260 @@
+[33mcommit 8f6955492bd6098411bcfb18465aa9522e4f1e12[m
+Author: danielggc <danielgrecia7@gmail.com>
+Date:   Tue Jan 21 16:52:28 2020 +0100
+
+    suviendo git ingore
+
+[1mdiff --git a/Listas/.gitignore b/Listas/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e22c8e4[m
+[1m--- /dev/null[m
+[1m+++ b/Listas/.gitignore[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m¡.[c][m
+[32m+[m[32m¡.[cpp][m
+[32m+[m[32m*.[#][m
+[32m+[m[32m*.[ ][m
+[1mdiff --git a/Listas/.gitignore~ b/Listas/.gitignore~[m
+[1mnew file mode 100644[m
+[1mindex 0000000..69fb1a5[m
+[1m--- /dev/null[m
+[1m+++ b/Listas/.gitignore~[m
+[36m@@ -0,0 +1,106 @@[m
+[32m+[m[32m#include <iostream>[m
+[32m+[m[32m#include<stdio.h>[m
+[32m+[m[32m#include <string>[m
+[32m+[m[32m#include <curses.h>[m
+[32m+[m[32musing namespace std;[m
+[32m+[m[32mstruct Nodo{[m
+[32m+[m[32m  Nodo *siguiente;[m
+[32m+[m[32m  int dato;[m
+[32m+[m[32m};[m
+[32m+[m[32mvoid buscarDato(Nodo *& , int);[m
+[32m+[m[32mvoid leerLista(Nodo *& ,int );[m
+[32m+[m[32mvoid agregarLista(Nodo *&,int);[m
+[32m+[m[32mvoid quitarElemento(Nodo *& ,int);[m
+[32m+[m[32mvoid quitarLista (Nodo *&,int );[m
+[32m+[m[32mint main(){[m
+[32m+[m[32m  Nodo *lista=NULL;[m
+[32m+[m[32m  int dato=0;[m
+[32m+[m[32m  cout<<"inserte el numero";[m
+[32m+[m[32m  cin>>dato;[m
+[32m+[m[32m  agregarLista(lista,dato);[m
+[32m+[m[32m  cout<<"inserte el numero";[m
+[32m+[m[32m  cin>>dato;[m
+[32m+[m[32m  agregarLista(lista,dato);[m
+[32m+[m[32m  cout<<"inserte el numero";[m
+[32m+[m[32m  cin>>dato;[m
+[32m+[m[32m  agregarLista(lista,dato);[m
+[32m+[m[32m  leerLista(lista,dato);[m
+[32m+[m[32m  cout<<"dijite el numero a buscar";[m
+[32m+[m[32m  cin>>dato;[m
+[32m+[m[32m  buscarDato(lista,dato);[m
+[32m+[m[32m  cout<<"dijite el numero a borrar";[m
+[32m+[m[32m  cin>>dato;[m
+[32m+[m[32m  quitarElemento(lista,dato);[m
+[32m+[m[32m  leerLista(lista,dato);[m
+[32m+[m[32m  quitarLista(lista,dato);[m
+[32m+[m[32m  leerLista(lista,dato);[m[41m  [m
+[32m+[m[32m}[m
+[32m+[m[32mvoid quitarLista(Nodo *& _lista,int d){[m
+[32m+[m[41m  [m
+[32m+[m[32m  Nodo *aux=_lista;[m[41m [m
+[32m+[m[32m  d=aux->dato;[m
+[32m+[m[32m  _lista=aux->siguiente;[m
+[32m+[m[32m  delete aux;[m
+[32m+[m[32m}[m
+[32m+[m[32mvoid quitarElemento(Nodo *&_lista ,int d){[m
+[32m+[m[32m  if(_lista!=NULL){[m
+[32m+[m[32m    Nodo *atras=NULL;[m
+[32m+[m[32m    Nodo *borrar=_lista;[m
+[32m+[m[32m    while((borrar!=NULL)&&(borrar->dato!=d)){[m
+[32m+[m[32m      atras=borrar;[m
+[32m+[m[32m      borrar=borrar->siguiente;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    if(atras==NULL){[m
+[32m+[m[32m      _lista=_lista->siguiente;[m
+[32m+[m[32m      delete borrar;[m
+[32m+[m[32m      cout<<"su numero "<<d <<"fue borrado de la lista";[m
+[32m+[m[32m    }[m
+[32m+[m[32m    else {[m
+[32m+[m[32m      atras->siguiente=borrar->siguiente;[m
+[32m+[m[32m      delete borrar;[m
+[32m+[m[32m      cout<<"su numero"<<d <<"fue borrado de la lista";[m[41m [m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m[32mvoid buscarDato (Nodo*& _lista , int d){[m
+[32m+[m[32m  Nodo *actual=new Nodo();[m
+[32m+[m[32m  actual=_lista;[m
+[32m+[m[32m  bool val=false;[m
+[32m+[m[32m  int i=0;[m
+[32m+[m[32m  while((actual!=NULL)&&(actual->dato<=d)){[m
+[32m+[m[32m    if(actual->dato==d)val=true;[m
+[32m+[m[32m    actual=actual->siguiente;[m
+[32m+[m[32m    if(val==false)i++;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  if(val==true)cout<<"su numero "<<d<< "si fue encontrado y esta en la posicion "<<i;[m
+[32m+[m[32m  else cout<<"su numero no fue encontrado";[m
+[32m+[m[32m}[m
+[32m+[m[32mvoid leerLista(Nodo *&  _lista ,int d){[m
+[32m+[m[32m  Nodo *lugar=new Nodo();[m
+[32m+[m[32m  lugar=_lista;[m
+[32m+[m[32m  cout<<"su lista es";[m
+[32m+[m[32m  while(lugar!=NULL ){[m
+[32m+[m[32m  cout<<" ->"<<lugar->dato;[m
+[32m+[m[32m  lugar=lugar->siguiente;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m[32mvoid agregarLista(Nodo *&  _lista,int d){[m
+[32m+[m[32m  Nodo *nuevoNodo=new Nodo();[m
+[32m+[m[32m  nuevoNodo->dato=d;[m
+[32m+[m[32m  Nodo *aux=_lista;[m
+[32m+[m[32m  Nodo *aux1;[m
+[32m+[m[41m  [m
+[32m+[m[32m  while(aux!=NULL&&aux->dato<d){[m
+[32m+[m[32m    aux1=aux;[m
+[32m+[m[32m    aux=aux->siguiente;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  if(_lista==aux){[m
+[32m+[m[32m    _lista=nuevoNodo;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  else{[m
+[32m+[m[32m   aux1->siguiente=nuevoNodo;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  cout<<d<<"dato insertado ajja¡¡\n";[m[41m  [m
+[32m+[m[32m  nuevoNodo->siguiente=aux;[m[41m	[m
+[32m+[m[41m [m
+[32m+[m[32m}[m
+[1mdiff --git a/Listas/listas b/Listas/listas[m
+[1mnew file mode 100755[m
+[1mindex 0000000..57d63cf[m
+Binary files /dev/null and b/Listas/listas differ
+[1mdiff --git a/Listas/listas.cpp b/Listas/listas.cpp[m
+[1mindex 69fb1a5..cd9a0b0 100644[m
+[1m--- a/Listas/listas.cpp[m
+[1m+++ b/Listas/listas.cpp[m
+[36m@@ -1,3 +1,4 @@[m
+[32m+[m
+ #include <iostream>[m
+ #include<stdio.h>[m
+ #include <string>[m
+
+[33mcommit 80cf3e39249723010fe55aea7959349f7426721d[m
+Author: danielggc <danielgrecia7@gmail.com>
+Date:   Tue Jan 21 08:13:33 2020 +0100
+
+    vercion inicial del proyecto
+
+[1mdiff --git a/Listas/listas.cpp b/Listas/listas.cpp[m
+[1mnew file mode 100644[m
+[1mindex 0000000..69fb1a5[m
+[1m--- /dev/null[m
+[1m+++ b/Listas/listas.cpp[m
+[36m@@ -0,0 +1,106 @@[m
+[32m+[m[32m#include <iostream>[m
+[32m+[m[32m#include<stdio.h>[m
+[32m+[m[32m#include <string>[m
+[32m+[m[32m#include <curses.h>[m
+[32m+[m[32musing namespace std;[m
+[32m+[m[32mstruct Nodo{[m
+[32m+[m[32m  Nodo *siguiente;[m
+[32m+[m[32m  int dato;[m
+[32m+[m[32m};[m
+[32m+[m[32mvoid buscarDato(Nodo *& , int);[m
+[32m+[m[32mvoid leerLista(Nodo *& ,int );[m
+[32m+[m[32mvoid agregarLista(Nodo *&,int);[m
+[32m+[m[32mvoid quitarElemento(Nodo *& ,int);[m
+[32m+[m[32mvoid quitarLista (Nodo *&,int );[m
+[32m+[m[32mint main(){[m
+[32m+[m[32m  Nodo *lista=NULL;[m
+[32m+[m[32m  int dato=0;[m
+[32m+[m[32m  cout<<"inserte el numero";[m
+[32m+[m[32m  cin>>dato;[m
+[32m+[m[32m  agregarLista(lista,dato);[m
+[32m+[m[32m  cout<<"inserte el numero";[m
+[32m+[m[32m  cin>>dato;[m
+[32m+[m[32m  agregarLista(lista,dato);[m
+[32m+[m[32m  cout<<"inserte el numero";[m
+[32m+[m[32m  cin>>dato;[m
+[32m+[m[32m  agregarLista(lista,dato);[m
+[32m+[m[32m  leerLista(lista,dato);[m
+[32m+[m[32m  cout<<"dijite el numero a buscar";[m
+[32m+[m[32m  cin>>dato;[m
+[32m+[m[32m  buscarDato(lista,dato);[m
+[32m+[m[32m  cout<<"dijite el numero a borrar";[m
+[32m+[m[32m  cin>>dato;[m
+[32m+[m[32m  quitarElemento(lista,dato);[m
+[32m+[m[32m  leerLista(lista,dato);[m
+[32m+[m[32m  quitarLista(lista,dato);[m
+[32m+[m[32m  leerLista(lista,dato);[m[41m  [m
+[32m+[m[32m}[m
+[32m+[m[32mvoid quitarLista(Nodo *& _lista,int d){[m
+[32m+[m[41m  [m
+[32m+[m[32m  Nodo *aux=_lista;[m[41m [m
+[32m+[m[32m  d=aux->dato;[m
+[32m+[m[32m  _lista=aux->siguiente;[m
+[32m+[m[32m  delete aux;[m
+[32m+[m[32m}[m
+[32m+[m[32mvoid quitarElemento(Nodo *&_lista ,int d){[m
+[32m+[m[32m  if(_lista!=NULL){[m
+[32m+[m[32m    Nodo *atras=NULL;[m
+[32m+[m[32m    Nodo *borrar=_lista;[m
+[32m+[m[32m    while((borrar!=NULL)&&(borrar->dato!=d)){[m
+[32m+[m[32m      atras=borrar;[m
+[32m+[m[32m      borrar=borrar->siguiente;[m
+[32m+[m[32m    }[m
+[32m+[m[32m    if(atras==NULL){[m
+[32m+[m[32m      _lista=_lista->siguiente;[m
+[32m+[m[32m      delete borrar;[m
+[32m+[m[32m      cout<<"su numero "<<d <<"fue borrado de la lista";[m
+[32m+[m[32m    }[m
+[32m+[m[32m    else {[m
+[32m+[m[32m      atras->siguiente=borrar->siguiente;[m
+[32m+[m[32m      delete borrar;[m
+[32m+[m[32m      cout<<"su numero"<<d <<"fue borrado de la lista";[m[41m [m
+[32m+[m[32m    }[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m[32mvoid buscarDato (Nodo*& _lista , int d){[m
+[32m+[m[32m  Nodo *actual=new Nodo();[m
+[32m+[m[32m  actual=_lista;[m
+[32m+[m[32m  bool val=false;[m
+[32m+[m[32m  int i=0;[m
+[32m+[m[32m  while((actual!=NULL)&&(actual->dato<=d)){[m
+[32m+[m[32m    if(actual->dato==d)val=true;[m
+[32m+[m[32m    actual=actual->siguiente;[m
+[32m+[m[32m    if(val==false)i++;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  if(val==true)cout<<"su numero "<<d<< "si fue encontrado y esta en la posicion "<<i;[m
+[32m+[m[32m  else cout<<"su numero no fue encontrado";[m
+[32m+[m[32m}[m
+[32m+[m[32mvoid leerLista(Nodo *&  _lista ,int d){[m
+[32m+[m[32m  Nodo *lugar=new Nodo();[m
+[32m+[m[32m  lugar=_lista;[m
+[32m+[m[32m  cout<<"su lista es";[m
+[32m+[m[32m  while(lugar!=NULL ){[m
+[32m+[m[32m  cout<<" ->"<<lugar->dato;[m
+[32m+[m[32m  lugar=lugar->siguiente;[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+[32m+[m[32mvoid agregarLista(Nodo *&  _lista,int d){[m
+[32m+[m[32m  Nodo *nuevoNodo=new Nodo();[m
+[32m+[m[32m  nuevoNodo->dato=d;[m
+[32m+[m[32m  Nodo *aux=_lista;[m
+[32m+[m[32m  Nodo *aux1;[m
+[32m+[m[41m  [m
+[32m+[m[32m  while(aux!=NULL&&aux->dato<d){[m
+[32m+[m[32m    aux1=aux;[m
+[32m+[m[32m    aux=aux->siguiente;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  if(_lista==aux){[m
+[32m+[m[32m    _lista=nuevoNodo;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  else{[m
+[32m+[m[32m   aux1->siguiente=nuevoNodo;[m
+[32m+[m[32m  }[m
+[32m+[m[32m  cout<<d<<"dato insertado ajja¡¡\n";[m[41m  [m
+[32m+[m[32m  nuevoNodo->siguiente=aux;[m[41m	[m
+[32m+[m[41m [m
+[32m+[m[32m}[m
